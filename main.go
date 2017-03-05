@@ -23,6 +23,7 @@ const (
 func main() {
 	//parse cli
 	modeFlag := flag.String("mode", "none", "modes: {setup, add, check}")
+	successOutput := flag.Int("stats", 0, "Statistics of internal successes or errors")
 	src := flag.String("dir", ".", "Source directory")
 	dbFilename := flag.String("db", "photos.db", "sqlite db")
 	flag.Parse()
@@ -103,7 +104,8 @@ FileLooper:
 					continue
 				}
 				if !b {
-					glog.Error("Not Found ", d.Fileobj.Name())
+					fmt.Println(d.Filename)
+					glog.Info("Not Found ", d.Fileobj.Name())
 				}
 				successCounter++
 			}
@@ -118,7 +120,9 @@ FileLooper:
 		}
 	}
 
-	fmt.Println("Number of successes: ", successCounter)
-	fmt.Println("Number of errors: ", errCounter)
+	if successOutput {
+		fmt.Println("Number of successes: ", successCounter)
+		fmt.Println("Number of errors: ", errCounter)
+	}
 
 }
