@@ -120,7 +120,7 @@ FileLooper:
 		}
 	}
 
-	if successOutput > 0 {
+	if *successOutput > 0 {
 		fmt.Println("Number of successes: ", successCounter)
 		fmt.Println("Number of errors: ", errCounter)
 	}
