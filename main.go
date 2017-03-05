@@ -7,8 +7,8 @@ import (
 )
 
 import (
-	"bitbucket.org/gaymish/file_indexer/db"
-	"bitbucket.org/gaymish/file_indexer/walker"
+	"github.com/cmiceli/go-fileidx/db"
+	"github.com/cmiceli/go-fileidx/walker"
 	"github.com/golang/glog"
 )
 
